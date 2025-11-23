@@ -1,0 +1,11 @@
+from src.hdx_engine import HDXEngine, Operator, Context
+
+# 1. Setup
+ops = [Operator("OpA", max_depth=5), Operator("OpB", max_depth=5)]
+engine = HDXEngine(ops)
+
+# 2. Run
+ctx = Context("User", "SECURE_ROOT_KEY_99X")
+result, state, trace = engine.run(b"MY_DATA", ctx)
+
+print(state) # "NORMAL"
